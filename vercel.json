@@ -3,13 +3,7 @@
     {
       "source": "/:path*",
       "destination": "http://traffic.lab004.xyz/:path*",
-      "permanent": false,
-      "has": [
-        {
-          "type": "host",
-          "value": "traffic.lab004.xyz"
-        }
-      ]
+      "permanent": false
     }
   ],
   "rewrites": [
@@ -36,5 +30,8 @@
         }
       ]
     }
-  ]
+  ],
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "vue"
 }
