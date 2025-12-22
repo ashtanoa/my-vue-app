@@ -268,17 +268,17 @@ const checkApiConnection = async () => {
 // ========== 挂载应用 ==========
 app.use(router)
 
-// 在DOM加载后检查
-app.mount('#app').then(() => {
-  console.log('✅ Vue应用挂载成功')
-  
-  // 延迟检查API连接
-  setTimeout(() => {
-    if (import.meta.env.DEV) {
-      checkApiConnection()
-    }
-  }, 1000)
-})
+// 挂载应用 - 这是同步操作
+app.mount('#app')
+
+console.log('✅ Vue应用挂载成功')
+
+// 延迟检查API连接
+setTimeout(() => {
+  if (import.meta.env.DEV) {
+    checkApiConnection()
+  }
+}, 1000)
 
 // 导出axios实例，方便其他地方导入使用
 export { axios as $http }
