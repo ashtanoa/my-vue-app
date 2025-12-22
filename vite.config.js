@@ -17,8 +17,11 @@ export default defineConfig({
     outDir: 'dist',
     chunkSizeWarningLimit: 1000,
     
-    // 关键：添加这些配置
+    // 关键修复：指定入口文件
     rollupOptions: {
+      // 这里！明确指定index.html作为入口
+      input: './index.html',
+      
       output: {
         assetFileNames: 'assets/[name]-[hash][extname]',
         chunkFileNames: 'assets/[name]-[hash].js',
@@ -26,14 +29,10 @@ export default defineConfig({
       }
     },
     
-    // 清空输出目录
     emptyOutDir: true,
-    
-    // 确保使用正确的资源路径
     assetsInlineLimit: 4096
   },
   
-  // 预览配置
   preview: {
     port: 4173
   }
