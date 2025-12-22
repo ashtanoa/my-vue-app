@@ -1,12 +1,16 @@
 {
-  "name": "my-vue-app",
-  "version": "0.0.0",
+  "name": "traffic-system",
+  "version": "1.0.0",
+  "description": "交通管理系统",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "preview:prod": "vite preview --port 4173 --host",
+    "deploy": "npm run build && echo '构建完成！请将dist目录部署到Vercel'",
+    "clean": "rm -rf dist node_modules/.vite"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.2",
@@ -17,7 +21,10 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.2",
-    "vite": "^7.2.4",
-    "vite-plugin-vue-devtools": "^8.0.5"
+    "vite": "^7.2.4"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
   }
 }
